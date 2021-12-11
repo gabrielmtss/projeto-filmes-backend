@@ -40,3 +40,30 @@ const listaFilmes = [
     assistido: false
   }
 ]
+
+const getAll = () => listaFilmes;
+
+const getById = (idParam) => {
+  return listaFilmes.find((filme) => filme.id == idParam);
+}
+
+const create = (novoFilme) => {
+  novoFilme.id = Date.now();
+
+  listaFilmes.push(novoFilme);
+  return novoFilme;
+}
+
+const edit = (idParam, filmeEdit) => {
+  const index = listaFilmes.findIndex((filme) => filme.id == idParam);
+
+  if(index >= 0) {
+    listaFilmes[index] = {
+      ...listaFilmes[index],
+      ...filmeEdit
+    }
+    return true
+  } else {
+    return false
+  }
+}
