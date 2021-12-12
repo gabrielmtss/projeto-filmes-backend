@@ -49,6 +49,7 @@ const getFilme = (idParam) => {
 
 const addFilme = (novoFilme) => {
   novoFilme.id = Date.now();
+  novoFilme.assistido = false;
 
   listaFilmes.push(novoFilme);
   return novoFilme;
