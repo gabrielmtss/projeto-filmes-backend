@@ -41,20 +41,20 @@ const listaFilmes = [
   }
 ]
 
-const getAll = () => listaFilmes;
+const getFilmes = () => listaFilmes;
 
-const getById = (idParam) => {
+const getFilme = (idParam) => {
   return listaFilmes.find((filme) => filme.id == idParam);
 }
 
-const create = (novoFilme) => {
+const addFilme = (novoFilme) => {
   novoFilme.id = Date.now();
 
   listaFilmes.push(novoFilme);
   return novoFilme;
 }
 
-const edit = (idParam, filmeEdit) => {
+const editFilme = (idParam, filmeEdit) => {
   const index = listaFilmes.findIndex((filme) => filme.id == idParam);
 
   if(index >= 0) {
@@ -66,4 +66,26 @@ const edit = (idParam, filmeEdit) => {
   } else {
     return false
   }
+}
+
+const deleteFilme = (idParam) => {
+  if(!idParam) {
+    return
+  }
+  const index = listaFilmes.findIndex((filme) => filme.id == idParam);
+  
+  const filme = listaFilmes[index]
+  listaFilmes.splice(index, 1);
+
+  res.send({
+    message: `O filme ${filme.nome} foi excluido com sucesso!`
+  });
+}
+
+module.exports = {
+  getFilmes,
+  getFilme,
+  addFilme,
+  editFilme,
+  deleteFilme
 }
