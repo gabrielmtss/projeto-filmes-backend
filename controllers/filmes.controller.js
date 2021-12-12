@@ -11,7 +11,7 @@ const getFilme = async (req, res) => {
 }
 
 const addFilme = async (req, res) => {
-  if(!req.body || !req.body.nome || !req.body.imagem || !req.body.genero || !req.body.nota || !req.body.assistido) {
+  if(!req.body || !req.body.nome || !req.body.imagem || !req.body.genero || !req.body.nota) {
     res.status(400).send({message: 'Filme invalido! Por favor preencha todas as informações.'});
     return
   }
@@ -26,7 +26,7 @@ const addFilme = async (req, res) => {
 }
 
 const editFilme = async (req, res) => {
-  if(!req.body || !req.body.nome || !req.body.imagem || !req.body.genero || !req.body.nota || !req.body.assistido) {
+  if(!req.body || !req.body.nome || !req.body.imagem || !req.body.genero || !req.body.nota) {
     res.status(400).send({message: 'Não foi possível editar o filme! Por favor preencha todas as informações.'});
     return
   }
