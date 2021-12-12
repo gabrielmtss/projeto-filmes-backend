@@ -76,10 +76,7 @@ const deleteFilme = (idParam) => {
   
   const filme = listaFilmes[index]
   listaFilmes.splice(index, 1);
-
-  res.send({
-    message: `O filme ${filme.nome} foi excluido com sucesso!`
-  });
+  return filme;
 }
 
 module.exports = {
